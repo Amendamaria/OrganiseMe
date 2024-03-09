@@ -1,0 +1,139 @@
+:root {
+  font-size: 62.5%;
+
+  --color-primary: hsl(235, 35%, 19%);
+  --color-secondary: green;
+  --color-font: hsla(0, 0%, 100%, 0.902);
+
+  --color-shadow: hsl(235, 36%, 35%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  background-image: url(https://aicontentfy.com/hubfs/Blog/3cef3bc9-8b68-40d3-a6aa-df2116282cf2.jpg);
+  background-size: cover;
+  backface-visibility: 100vh;
+  font-size: 1.6rem;
+  font-family: 'Open sans', sans-serif;
+}
+
+p,
+i,
+h1 {
+  color: var(--color-font);
+}
+
+i {
+  font-size: 3.2rem;
+}
+
+h1 {
+  font-size: 3.2rem;
+}
+
+
+section {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  margin: 150px;
+  width: min(43rem, 100%);
+  margin-inline: auto;
+  padding-inline: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(43, 43, 43, 0.568);
+}
+
+.painel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+  width: 20rem;
+  margin-block: 5rem;
+  padding: 1rem;
+  border: 1px;
+  border-radius: 10rem;
+}
+
+.painel p {
+  opacity: .8;
+}
+
+.painel p.active {
+  opacity: 1;
+  color: var(--color-secondary);
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30rem;
+  height: 30rem;
+  border-radius: 50%;
+
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 26rem;
+  height: 26rem;
+  border-radius: 50%;
+  background-color: var(--color-secondary);
+  position: relative;
+}
+
+.circle::before {
+  content: '';
+  position: absolute;
+  width: 95%;
+  height: 95%;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+}
+
+.time {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.time p {
+  font-size: 5.6rem;
+}
+
+.time p:nth-of-type(2) {
+  position: relative;
+  top: -.5rem;
+  margin-inline: 1rem;
+}
+
+.controls {
+  margin-top: 3rem;
+}
+
+.controls button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.controls #reset {
+  display: none;
+}
