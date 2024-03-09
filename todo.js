@@ -1,3 +1,5 @@
+const express = require("express");
+
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 
@@ -32,3 +34,7 @@ function saveData() {
 function showTask() {
     listContainer.innerHTML = localStorage.getItem("data");
 }
+const PORT = 3000
+exports.PORT = PORT;const app = express()
+exports.app = app
+
