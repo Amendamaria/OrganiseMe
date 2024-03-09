@@ -34,7 +34,4 @@ function saveData() {
 function showTask() {
     listContainer.innerHTML = localStorage.getItem("data");
 }
-const PORT = 3000
-exports.PORT = PORT;const app = express()
-exports.app = app
 
