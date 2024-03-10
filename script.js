@@ -1,8 +1,8 @@
 let workTittle = document.getElementById('work');
 let breakTittle = document.getElementById('break');
 
-let workTime = 1;
-let breakTime = 10;
+let workTime = 60;
+let breakTime = 5;
 
 let seconds = "00"
 
