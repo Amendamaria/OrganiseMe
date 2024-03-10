@@ -5,11 +5,14 @@ body{
 }
 button{
     background-color: rgb(208, 0, 255);
-    text-decoration: none;
-    color: white;
-    border: solid 1px;
+    border: white 1px;
+    border-radius: 25px;
     box-sizing: border-box;
     padding: 2em;
     font-size: x-large;
     font-weight: bold;
+}
+button a{
+    text-decoration: none;
+    color: white;
 }
