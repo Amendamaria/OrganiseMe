@@ -27,10 +27,31 @@ listContainer.addEventListener("click", function(e) {
 }, false);
 
 function saveData() {
-    localStorage.setItem("data", listContainer.innerHTML);
+    let data = "";
+    const lis = listContainer.querySelectorAll("li");
+    lis.forEach(li => {
+        data += li.innerHTML + "|";
+    });
+    document.cookie = "todoList=" + encodeURIComponent(data);
 }
 
 function showTask() {
-    listContainer.innerHTML = localStorage.getItem("data");
+    const cookies = document.cookie.split(';');
+    let savedData = '';
+    for (let cookie of cookies) {
+        cookie = cookie.trim();
+        if (cookie.startsWith("todoList=")) {
+            savedData = decodeURIComponent(cookie.substring("todoList=".length));
+            break;
+        }
+    }
+    const tasks = savedData.split('|');
+    tasks.forEach(task => {
+        if (task) {
+            let li = document.createElement("li");
+            li.innerHTML = task;
+            listContainer.appendChild(li);
+        }
+    });
 }
 showTask();
