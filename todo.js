@@ -1,4 +1,3 @@
-
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 
@@ -10,19 +9,20 @@ function addTask() {
         li.innerHTML = inputBox.value;
         listContainer.appendChild(li);
         let span = document.createElement("span");
-        span.innerHTML = "\u00d7"; 
+        span.innerHTML = "\u00d7";
         li.appendChild(span);
     }
     inputBox.value = '';
     saveData();
 }
 
-listContainer.addEventListener("click", function(e) { 
+listContainer.addEventListener("click", function(e) {
     if (e.target.tagName === "LI") {
         e.target.classList.toggle("checked");
         saveData();
     } else if (e.target.tagName === "SPAN") {
         e.target.parentElement.remove();
+        clearData();
     }
 }, false);
 
@@ -32,7 +32,9 @@ function saveData() {
     lis.forEach(li => {
         data += li.innerHTML + "|";
     });
-    document.cookie = "todoList=" + encodeURIComponent(data);
+    let expirationDate = new Date();
+    expirationDate.setFullYear(expirationDate.getFullYear() + 1);
+    document.cookie = "todoList=" + encodeURIComponent(data) + "; expires=" + expirationDate.toUTCString();
 }
 
 function showTask() {
@@ -55,3 +57,8 @@ function showTask() {
     });
 }
 showTask();
+
+function clearData() {
+    // Remove the "todoList" cookie
+    document.cookie = "todoList=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+}
